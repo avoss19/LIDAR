@@ -38,7 +38,7 @@ $ sudo apt-get install ros-kinetic-urg-*
 $ source /opt/ros/kinetic/setup.bash
 $ roscd hector_slam_launch
 $ curl -O https://raw.githubusercontent.com/avoss19/bsm_slam/master/launch/default_mapping.launch
-$ curl -O https://github.com/avoss19/bsm_slam/raw/master/launch/hector_hokuyo.launch
+$ curl -O https://raw.githubusercontent.com/avoss19/bsm_slam/master/launch/hector_hokuyo.launch
 ```
 
 - Download Scripts:
