@@ -11,9 +11,11 @@ or
 
 ```bash
 $ cd ~/LIDAR
-$ source /opt/ros/kinetic/setup.bash
 $ python httpHost.py &>/dev/null &
+$ cd ~/catkin_ws
+$ source devel/setup.bash
 $ roslaunch hector_slam_launch hector_hokuyo.launch &
+$ cd ~/LIDAR
 $ bash hostLidar.bash &>/dev/null &
 ```
 
