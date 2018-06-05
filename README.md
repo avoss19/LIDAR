@@ -1,76 +1,68 @@
 # LIDAR SLAM
 
-Setup for BSM's robot with a LIDAR sensor utilizing [hector_slam](https://github.com/tu-darmstadt-ros-pkg/hector_slam)
+Setup for BSM's robot with a LIDAR sensor utilizing [hector_slam](https://github.com/tu-darmstadt-ros-pkg/hector_slam) & [urg_node](https://github.com/ros-drivers/urg_node)
 
 ## Run
+```bash
+$ bash ~/LIDAR/run.bash
+```
 
-- Run:
+or
 
 ```bash
+$ cd ~/LIDAR
 $ source /opt/ros/kinetic/setup.bash
-$ python httpHost.py
-$ roslaunch hector_slam_launch hector_hokuyo.launch
-$ bash hostLidar.bash
+$ python httpHost.py &>/dev/null &
+$ roslaunch hector_slam_launch hector_hokuyo.launch &
+$ bash hostLidar.bash &>/dev/null &
 ```
 
-- Run from source:
+## Easy Install
 
-```Bash
-$ cd catkin_ws
-$ source devel/setup.bash
-$ python httpHost.py
-$ roslaunch bsm_slam hector_hokuyo.launch
-$ bash hostLidar.bash
+Install ROS Kinetic:
+  - [Raspberry Pi Ubuntu ROS Image](https://downloads.ubiquityrobotics.com/pi.html)
+
+Install:
+
+```bash
+$ wget https://raw.githubusercontent.com/avoss19/LIDAR/master/setup.bash
+$ sudo bash setup.bash
 ```
 
-## Install
+## Normal Install
 
-- Install Packages:
+Install ROS Kinetic:
+  - [Raspberry Pi Ubuntu ROS Image](https://downloads.ubiquityrobotics.com/pi.html)
+
+Install Packages:
 
 ```bash
 $ sudo apt-get install ros-kinetic-hector-*
 $ sudo apt-get install ros-kinetic-urg-*
 ```
 
-- Download launch files:
+Create catkin_ws (Skip if using Pi ROS Image Above):
 
 ```bash
-$ source /opt/ros/kinetic/setup.bash
-$ roscd hector_slam_launch
-$ curl -O https://raw.githubusercontent.com/avoss19/bsm_slam/master/launch/default_mapping.launch
-$ curl -O https://raw.githubusercontent.com/avoss19/bsm_slam/master/launch/hector_hokuyo.launch
+$ source /opt/ros/melodic/setup.bash
+$ mkdir -p ~/catkin_ws/src
+$ cd ~/catkin_ws/
+$ catkin_make
 ```
 
-- Download Scripts:
+Install bsm_slam:
 
 ```bash
-$ cd catkin_ws
-$ curl -O https://raw.githubusercontent.com/avoss19/LIDAR/master/hostLidar.bash
-$ curl -O https://raw.githubusercontent.com/avoss19/LIDAR/master/httpHost.py
-```
-
-
-
-## Install from Source
-
-- Install ROS Kinetic
-  - [Raspberry Pi Ubuntu ROS Image](https://downloads.ubiquityrobotics.com/pi.html)
-
-
-- Create [catkin_ws](http://wiki.ros.org/catkin/Tutorials/create_a_workspace) (Skip this step if using Raspberry Pi Image)
-- Clone packages to src of catkin_ws - [hector_slam](https://github.com/tu-darmstadt-ros-pkg/hector_slam), [urg_node](https://github.com/ros-drivers/urg_node), [bsm_slam](https://github.com/avoss19/bsm_slam)
-- Install packages from source:
-
-```bash
-$ cd catkin_ws
+$ cd ~/catkin_ws/src
+$ git clone https://github.com/avoss19/bsm_slam.git
+$ cd ~/catkin_ws
 $ rosdep install --from-paths src --ignore-src --rosdistro kinetic
 $ catkin_make
 ```
 
-- Download Scripts:
+Download Scripts:
 
 ```bash
-$ cd catkin_ws
-$ curl -O https://raw.githubusercontent.com/avoss19/LIDAR/master/hostLidar.bash
-$ curl -O https://raw.githubusercontent.com/avoss19/LIDAR/master/httpHost.py
+$ cd ~
+$ git clone https://github.com/avoss19/LIDAR.git
 ```
