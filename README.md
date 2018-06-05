@@ -11,12 +11,12 @@ or
 
 ```bash
 $ cd ~/LIDAR
-$ python httpHost.py &>/dev/null &
+$ python httpHost.py
 $ cd ~/catkin_ws
 $ source devel/setup.bash
-$ roslaunch hector_slam_launch hector_hokuyo.launch &
+$ roslaunch hector_slam_launch hector_hokuyo.launch
 $ cd ~/LIDAR
-$ bash hostLidar.bash &>/dev/null &
+$ bash hostLidar.bash
 ```
 
 ## Easy Install
