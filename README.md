@@ -14,7 +14,7 @@ $ cd ~/LIDAR
 $ python httpHost.py
 $ cd ~/catkin_ws
 $ source devel/setup.bash
-$ roslaunch hector_slam_launch hector_hokuyo.launch
+$ roslaunch bsm_slam hector_hokuyo.launch
 $ cd ~/LIDAR
 $ bash hostLidar.bash
 ```
